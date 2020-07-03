@@ -1,15 +1,27 @@
-/**
-My awesome module.
-@param input Lorem ipsum.
-@param postfix Lorem ipsum.
-@example
-```
-const theModule = require("the-module");
+declare const minecraftPath: {
+	/**
+	Get the directory where the Minecraft Java Edition files are stored.
+	@example
+	```
+	const minecraftPath = require("minecraft-path");
 
-theModule("unicorns");
-//=> 'unicorns & rainbows'
-```
-*/
-declare function theModule(input: string, { postfix }: { postfix?: string }): string
+	minecraftPath();
+	//=> "C:\\Users\\richi\\AppData\\Roaming\\.minecraft"
+	```
+	*/
+	(): string
 
-export = theModule
+	/**
+	Get the directory where the Minecraft Windows 10 Edition files are stored.
+	@example
+	```
+	const minecraftPath = require("minecraft-path");
+
+	minecraftPath.win10();
+	//=> "C:\\Users\\richi\\AppData\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang"
+	```
+	*/
+	win10(): string
+}
+
+export = minecraftPath

@@ -1,8 +1,8 @@
 {
-	"name": "the-module",
+	"name": "minecraft-path",
 	"version": "0.0.0",
-	"description": "My awesome module.",
-	"repository": "https://github.com/Richienb/the-module.git",
+	"description": "Get the directory where the Minecraft files are stored.",
+	"repository": "https://github.com/Richienb/minecraft-path.git",
 	"author": "Richie Bendall <richiebendall@gmail.com>",
 	"license": "MIT",
 	"main": "index.js",
@@ -17,7 +17,13 @@
 		"lint": "xo",
 		"test": "xo && ava"
 	},
-	"keywords": [],
+	"keywords": [
+		"minecraft",
+		"directory",
+		"store",
+		"files",
+		"folder"
+	],
 	"dependencies": {},
 	"devDependencies": {
 		"ava": "^3.9.0",

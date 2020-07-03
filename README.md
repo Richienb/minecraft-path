@@ -1,41 +1,33 @@
-# the-module [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/the-module/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/the-module)
+# minecraft-path [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/minecraft-path/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/minecraft-path)
 
-My awesome module.
+Get the directory where the Minecraft files are stored.
 
-[![NPM Badge](https://nodei.co/npm/the-module.png)](https://npmjs.com/package/the-module)
+[![NPM Badge](https://nodei.co/npm/minecraft-path.png)](https://npmjs.com/package/minecraft-path)
 
 ## Install
 
 ```sh
-npm install the-module
+npm install minecraft-path
 ```
 
 ## Usage
 
 ```js
-const theModule = require("the-module");
+const minecraftPath = require("minecraft-path");
 
-theModule("unicorns");
-//=> 'unicorns & rainbows'
+minecraftPath();
+//=> "C:\\Users\\richi\\AppData\\Roaming\\.minecraft"
+
+minecraftPath.win10();
+//=> "C:\\Users\\richi\\AppData\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang"
 ```
 
 ## API
 
-### theModule(input, options?)
+### minecraftPath()
 
-#### input
+Get the directory where the Minecraft Java Edition files are stored.
 
-Type: `string`
+### minecraftPath.win10()
 
-Lorem ipsum.
-
-#### options
-
-Type: `object`
-
-##### postfix
-
-Type: `string`\
-Default: `rainbows`
-
-Lorem ipsum.
+Get the directory where the Minecraft Windows 10 Edition files are stored.
