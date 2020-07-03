@@ -1,6 +1,6 @@
 {
 	"name": "minecraft-path",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "Get the directory where the Minecraft files are stored.",
 	"repository": "https://github.com/Richienb/minecraft-path.git",
 	"author": "Richie Bendall <richiebendall@gmail.com>",
