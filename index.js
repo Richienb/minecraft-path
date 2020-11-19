@@ -24,7 +24,7 @@ module.exports = () => {
 }
 
 module.exports.win10 = () => {
-	if (process.platform !== "win32" || parseInt(os.release().split(".")[0], 10) !== 10) {
+	if (process.platform !== "win32" || Number.parseInt(os.release().split(".")[0], 10) !== 10) {
 		throw new Error("Windows 10 is required!")
 	}
 
