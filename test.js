@@ -11,25 +11,27 @@ test("minecraftPath return", t => {
 	const originalPlatform = process.platform
 
 	const testCases = {
-		"win32" : path.join(os.homedir(), "AppData", "Roaming", ".minecraft"),
-		"darwin" : path.join(os.homedir(), "Library", "Application", "Support", "minecraft"),
-		"linux" : path.join(os.homedir(), ".minecraft"),
-		"android" : path.join("/", "sdcard", "games", "com.mojang")
+		win32: path.join(os.homedir(), "AppData", "Roaming", ".minecraft"),
+		darwin: path.join(os.homedir(), "Library", "Application", "Support", "minecraft"),
+		linux: path.join(os.homedir(), ".minecraft"),
+		android: path.join("/", "sdcard", "games", "com.mojang")
 	}
 
-	t.plan(Object.keys(testCases).length);
+	t.plan(Object.keys(testCases).length)
 
 	for (const platform in testCases) {
-		Object.defineProperty(process, 'platform', {  
-			value: platform
-		})
+		if (Object.prototype.hasOwnProperty.call(testCases, platform)) {
+			Object.defineProperty(process, "platform", {
+				value: platform
+			})
 
-		t.is(minecraftPath(), testCases[platform])
+			t.is(minecraftPath(), testCases[platform])
+		}
 	}
 
-	Object.defineProperty(process, 'platform', {  
+	Object.defineProperty(process, "platform", {
 		value: originalPlatform
-	})	
+	})
 })
 
 test("platform not supported error", t => {
