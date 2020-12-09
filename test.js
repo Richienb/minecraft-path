@@ -1,32 +1,20 @@
 const os = require("os")
-const path = require("path")
 const test = require("ava")
 const minecraftPath = require(".")
 
-test("main", t => {
-	t.is(typeof minecraftPath(), "string")
-})
-
-test("minecraftPath return", t => {
+test("type of minecraftPath return", t => {
 	const originalPlatform = process.platform
 
-	const testCases = {
-		win32: path.join(os.homedir(), "AppData", "Roaming", ".minecraft"),
-		darwin: path.join(os.homedir(), "Library", "Application", "Support", "minecraft"),
-		linux: path.join(os.homedir(), ".minecraft"),
-		android: path.join("/", "sdcard", "games", "com.mojang")
-	}
+	const platforms = ["win32", "darwin", "linux", "android"]
 
-	t.plan(Object.keys(testCases).length)
+	t.plan(platforms.length)
 
-	for (const platform in testCases) {
-		if (Object.prototype.hasOwnProperty.call(testCases, platform)) {
-			Object.defineProperty(process, "platform", {
-				value: platform
-			})
+	for (const platform of platforms) {
+		Object.defineProperty(process, "platform", {
+			value: platform
+		})
 
-			t.is(minecraftPath(), testCases[platform])
-		}
+		t.is(typeof minecraftPath(), "string")
 	}
 
 	Object.defineProperty(process, "platform", {
