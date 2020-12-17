@@ -31,9 +31,9 @@ test("platform not supported error", t => {
 })
 
 test("Windows 10 is required error", t => {
-	if (process.platform !== "win32" || Number.parseInt(os.release().split(".")[0], 10) !== 10) {
-		t.throws(() => minecraftPath.win10(), { message: "Windows 10 is required!" })
-	} else {
+	if (process.platform === "win32" && Number.parseInt(os.release().split(".")[0], 10) === 10) {
 		t.notThrows(() => minecraftPath.win10(), "Windows 10 is required!")
+	} else {
+		t.throws(() => minecraftPath.win10(), { message: "Windows 10 is required!" })
 	}
 })
